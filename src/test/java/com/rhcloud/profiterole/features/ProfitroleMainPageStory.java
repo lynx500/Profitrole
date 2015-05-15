@@ -5,6 +5,7 @@ import com.rhcloud.profiterole.steps.LoginSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import org.junit.Ignore;
@@ -26,7 +27,7 @@ public class ProfitroleMainPageStory {
     LoginSteps loginSteps;
 
     @Test
-    @Ignore
+    @Pending
     public void clickLoginLink() {
         endUserSteps.openHomePage();
         endUserSteps.clickLoginLink();

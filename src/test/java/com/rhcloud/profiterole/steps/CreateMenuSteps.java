@@ -1,6 +1,7 @@
 package com.rhcloud.profiterole.steps;
 
 import com.rhcloud.profiterole.pages.MenuOnDayPage;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -29,6 +30,7 @@ public class CreateMenuSteps extends ScenarioSteps {
 
     @Step
     public void clickBack() {
+        menuOnDayPage.waitForBackBtn();
         menuOnDayPage.clickBtnBack();
     }
 
@@ -62,5 +64,10 @@ public class CreateMenuSteps extends ScenarioSteps {
     @Step
     public void checkHeadlineInModalRecipeWindow(String headline) {
         assertEquals(headline, menuOnDayPage.getHeadlineInModalRecipeWindow());
+    }
+
+    @Step
+    public void waitForBackButton() {
+        menuOnDayPage.waitForBackBtn();
     }
 }

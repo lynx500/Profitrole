@@ -4,6 +4,7 @@ import com.rhcloud.profiterole.steps.RegistrationSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
+import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import org.junit.Ignore;
@@ -24,6 +25,7 @@ public class RegistrationStory {
     RegistrationSteps registrationSteps;
 
     @Test
+    @Ignore
     public void shouldReturnMessageFillRequiredData() {
         registrationSteps.openRegistrationPage();
         registrationSteps.clickBtnRegister();
@@ -32,7 +34,7 @@ public class RegistrationStory {
     }
 
     @Test
-    @Ignore
+    @Pending
     public void shouldRegisterTheUser() {
         registrationSteps.openRegistrationPage();
         registrationSteps.fillOutRequiredFields("test", "123456", "ghfh24487@haqed.com");
