@@ -10,7 +10,10 @@ import net.thucydides.core.pages.Pages;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 @RunWith(SerenityRunner.class)
 public class CreateMenuStory {
@@ -41,7 +44,7 @@ public class CreateMenuStory {
     }
 
     @Test
-//    @Pending
+    @Pending
     public void shouldReturnToTheRecipesTable() {
         createMenuSteps.openUkrCuisine();
         createMenuSteps.clickBack();
@@ -54,5 +57,14 @@ public class CreateMenuStory {
         createMenuSteps.openUkrCuisine();
         createMenuSteps.clickSandwich();
         createMenuSteps.checkHeadlineInModalRecipeWindow("Бутерброд с колбасой");
+    }
+
+    @Test
+    public void addBreakfast() {
+        createMenuSteps.openUkrCuisine();
+//        new Actions(webDriver).dragAndDrop(createMenuSteps.getSandwich(), createMenuSteps.getDivBreakfast());
+        new Actions(webDriver).clickAndHold(createMenuSteps.getSandwich()).moveToElement(createMenuSteps.getDivBreakfast()).release().perform();
+//        createMenuSteps.dragNDrop();
+        createMenuSteps.clickDiv();
     }
 }

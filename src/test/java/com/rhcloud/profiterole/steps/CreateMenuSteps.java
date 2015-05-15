@@ -2,8 +2,11 @@ package com.rhcloud.profiterole.steps;
 
 import com.rhcloud.profiterole.pages.MenuOnDayPage;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.StringReader;
 
@@ -12,6 +15,9 @@ import static org.junit.Assert.assertEquals;
 public class CreateMenuSteps extends ScenarioSteps {
 
     MenuOnDayPage menuOnDayPage;
+
+//    @Managed
+//    WebDriver webDriver;
 
     @Step
     public void openMenuOnDayPage() {
@@ -70,4 +76,24 @@ public class CreateMenuSteps extends ScenarioSteps {
     public void waitForBackButton() {
         menuOnDayPage.waitForBackBtn();
     }
+
+    @Step
+    public WebElementFacade getDivBreakfast() {
+       return menuOnDayPage.getDivBreakfast();
+    }
+
+    @Step
+    public WebElementFacade getSandwich() {
+        return menuOnDayPage.getSandwich();
+    }
+
+    @Step
+    public void clickDiv() {
+        menuOnDayPage.clickDiv();
+    }
+
+//    @Step
+//    public void dragNDrop() {
+//        new Actions(webDriver).clickAndHold(menuOnDayPage.getSandwich()).moveToElement(menuOnDayPage.getDivBreakfast()).release().perform();
+//    }
 }

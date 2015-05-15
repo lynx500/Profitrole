@@ -27,8 +27,14 @@ public class MenuOnDayPage extends PageObject {
     @FindBy(xpath = "//div[@id='cuisine']/div[22]/div[3]/label")
     private WebElementFacade sandwich;
 
+    @FindBy(id = "breakfast")
+    private WebElementFacade divBreakfast;
+
     @FindBy(id = "myModalLabel")
     private WebElementFacade modalRecipeWindow;
+
+    @FindBy(css = "label.title")
+    private WebElementFacade div2;
 
     public void clickBtnBreakfast() {
         btnBreakfast.click();
@@ -60,5 +66,17 @@ public class MenuOnDayPage extends PageObject {
 
     public void waitForBackBtn() {
         waitForRenderedElements(By.id("back"));
+    }
+
+    public WebElementFacade getSandwich() {
+        return sandwich;
+    }
+
+    public WebElementFacade getDivBreakfast() {
+        return divBreakfast;
+    }
+
+    public void clickDiv() {
+        div2.click();
     }
 }
