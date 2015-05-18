@@ -92,8 +92,8 @@ public class CreateMenuSteps extends ScenarioSteps {
         menuOnDayPage.clickDiv();
     }
 
-//    @Step
-//    public void dragNDrop() {
-//        new Actions(webDriver).clickAndHold(menuOnDayPage.getSandwich()).moveToElement(menuOnDayPage.getDivBreakfast()).release().perform();
-//    }
+    @Step
+    public void dragNDrop() {
+        menuOnDayPage.dragNDrop();
+    }
 }

@@ -28,7 +28,6 @@ public class CreateMenuStory {
     CreateMenuSteps createMenuSteps;
 
     @Test
-    @Ignore
     public void shouldOpenPageWithRequiredHeadlines() {
         createMenuSteps.openBreakfatsPage();
         createMenuSteps.checkLeftHeadline("Ваш завтрак");
@@ -36,7 +35,6 @@ public class CreateMenuStory {
     }
 
     @Test
-    @Pending
     public void shouldOpenDesiredCuisine() {
         createMenuSteps.openBreakfatsPage();
         createMenuSteps.clickUkrCuisine();
@@ -44,7 +42,6 @@ public class CreateMenuStory {
     }
 
     @Test
-    @Pending
     public void shouldReturnToTheRecipesTable() {
         createMenuSteps.openUkrCuisine();
         createMenuSteps.clickBack();
@@ -52,7 +49,6 @@ public class CreateMenuStory {
     }
 
     @Test
-    @Ignore
     public void shouldOpenWindowWithDesiredRecipe() {
         createMenuSteps.openUkrCuisine();
         createMenuSteps.clickSandwich();
@@ -62,9 +58,7 @@ public class CreateMenuStory {
     @Test
     public void addBreakfast() {
         createMenuSteps.openUkrCuisine();
-//        new Actions(webDriver).dragAndDrop(createMenuSteps.getSandwich(), createMenuSteps.getDivBreakfast());
-        new Actions(webDriver).clickAndHold(createMenuSteps.getSandwich()).moveToElement(createMenuSteps.getDivBreakfast()).release().perform();
-//        createMenuSteps.dragNDrop();
+        createMenuSteps.dragNDrop();
         createMenuSteps.clickDiv();
     }
 }

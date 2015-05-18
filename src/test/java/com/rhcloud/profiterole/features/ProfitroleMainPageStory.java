@@ -24,10 +24,11 @@ public class ProfitroleMainPageStory {
 
     @Steps
     EndUserSteps endUserSteps;
+
+    @Steps
     LoginSteps loginSteps;
 
     @Test
-    @Pending
     public void clickLoginLink() {
         endUserSteps.openHomePage();
         endUserSteps.clickLoginLink();

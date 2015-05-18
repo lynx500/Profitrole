@@ -24,7 +24,6 @@ public class LoginStory {
     LoginSteps loginPageSteps;
 
     @Test
-    @Ignore
     public void shouldLoginToTheAccount() {
         loginPageSteps.login("nikedrummer", "123456");
         loginPageSteps.checkTextOnLogoutLink("Выход");
@@ -32,14 +31,12 @@ public class LoginStory {
     }
 
     @Test
-    @Ignore
     public void shouldReturnMessageIncorrectLogin() {
         loginPageSteps.login("nika", "123456");
         loginPageSteps.checkMessageIncorrectLogin("Вы ввели неверный логин и/или пароль");
     }
 
     @Test
-    @Ignore
     public void shouldReturnMessageAfterEmptyInput() {
         loginPageSteps.login("", "");
         loginPageSteps.checkMessageIncorrectLogin("Вы ввели неверный логин и/или пароль");

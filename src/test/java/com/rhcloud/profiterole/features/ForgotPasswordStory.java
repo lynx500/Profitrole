@@ -24,21 +24,18 @@ public class ForgotPasswordStory {
     ForgotPasswordSteps forgotPasswordSteps;
 
     @Test
-    @Ignore
     public void shouldSentPasswordToTheEmail() {
         forgotPasswordSteps.retrievePassword("whj12403@haqed.com");
         forgotPasswordSteps.checkMessageEmailWasSent("На Ваш Email отправлено сообщение со ссылкой для восстановления пароля.");
     }
 
     @Test
-    @Ignore
     public void shouldReturnErrorIncorrectEmail() {
         forgotPasswordSteps.retrievePassword("dfgd@dfg.dg");
         forgotPasswordSteps.checkMessageIncorrectLogin("Пользователь с данным e-mail адрессом не зарегистрирован.");
     }
 
     @Test
-    @Ignore
     public void shouldReturnErrorEmptyEmail() {
         forgotPasswordSteps.retrievePassword("");
         forgotPasswordSteps.checkMessageIncorrectLogin("Поле не должно быть пустым.");

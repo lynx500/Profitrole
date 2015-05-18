@@ -25,7 +25,6 @@ public class RegistrationStory {
     RegistrationSteps registrationSteps;
 
     @Test
-    @Ignore
     public void shouldReturnMessageFillRequiredData() {
         registrationSteps.openRegistrationPage();
         registrationSteps.clickBtnRegister();
@@ -34,7 +33,7 @@ public class RegistrationStory {
     }
 
     @Test
-    @Pending
+    @Ignore
     public void shouldRegisterTheUser() {
         registrationSteps.openRegistrationPage();
         registrationSteps.fillOutRequiredFields("test", "123456", "ghfh24487@haqed.com");

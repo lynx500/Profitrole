@@ -4,10 +4,16 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 @DefaultUrl("http://gioia-profiterole.rhcloud.com/menu")
 public class MenuOnDayPage extends PageObject {
+
+    public MenuOnDayPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(xpath = "//button[@value='#breakfast']")
     private WebElementFacade btnBreakfast;
@@ -78,5 +84,9 @@ public class MenuOnDayPage extends PageObject {
 
     public void clickDiv() {
         div2.click();
+    }
+
+    public void dragNDrop() {
+        new Actions(getDriver()).clickAndHold(getSandwich()).moveToElement(getDivBreakfast()).release().perform();
     }
 }
