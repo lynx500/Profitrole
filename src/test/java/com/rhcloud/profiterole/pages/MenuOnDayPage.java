@@ -3,7 +3,6 @@ package com.rhcloud.profiterole.pages;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -24,14 +23,11 @@ public class MenuOnDayPage extends PageObject {
     @FindBy(css = "#menu-header > h1")
     private WebElementFacade rightHeadline;
 
-    @FindBy(xpath = "//*[@id='cuisine']/div[1]")
+    @FindBy(xpath = "//*[@id='cuisine']/div[contains(.,'Украинская')]")
     private WebElementFacade ukrCuisine;
 
-    @FindBy(id = "back")
-    private WebElementFacade btnBack;
-
-    @FindBy(xpath = "//div[@id='cuisine']/div[22]/div[3]/label")
-    private WebElementFacade sandwich;
+    @FindBy(xpath = "//*[@id='cuisine']/div[contains(.,'Молоко')]")
+    private WebElementFacade milk;
 
     @FindBy(id = "breakfast")
     private WebElementFacade divBreakfast;
@@ -39,15 +35,15 @@ public class MenuOnDayPage extends PageObject {
     @FindBy(id = "myModalLabel")
     private WebElementFacade modalRecipeWindow;
 
-    @FindBy(css = "label.title")
-    private WebElementFacade div2;
+    @FindBy(xpath = "//*[@id='breakfast']/div[contains(.,'Молоко')]")
+    private WebElementFacade milkOnDivBreakfast;
+
+    public boolean isMilkEnableOnBreakfastPanel() {
+        return milkOnDivBreakfast.isPresent();
+    }
 
     public void clickBtnBreakfast() {
         btnBreakfast.click();
-    }
-
-    public void clickBtnBack() {
-        btnBack.click();
     }
 
     public String getLeftHeadline() {
@@ -62,31 +58,23 @@ public class MenuOnDayPage extends PageObject {
         ukrCuisine.click();
     }
 
-    public void clickSandwich() {
-        sandwich.click();
+    public void clickMilk() {
+        milk.click();
     }
 
     public String getHeadlineInModalRecipeWindow() {
         return modalRecipeWindow.getText();
     }
 
-    public void waitForBackBtn() {
-        waitForRenderedElements(By.id("back"));
-    }
-
-    public WebElementFacade getSandwich() {
-        return sandwich;
+    public WebElementFacade getMilk() {
+        return milk;
     }
 
     public WebElementFacade getDivBreakfast() {
         return divBreakfast;
     }
 
-    public void clickDiv() {
-        div2.click();
-    }
-
-    public void dragNDrop() {
-        new Actions(getDriver()).clickAndHold(getSandwich()).moveToElement(getDivBreakfast()).release().perform();
+    public void dragNDropDishForBreakfast(WebElementFacade dish) {
+        new Actions(getDriver()).clickAndHold(dish).moveToElement(getDivBreakfast()).release().perform();
     }
 }

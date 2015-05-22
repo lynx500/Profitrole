@@ -2,22 +2,15 @@ package com.rhcloud.profiterole.steps;
 
 import com.rhcloud.profiterole.pages.MenuOnDayPage;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-
-import java.io.StringReader;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CreateMenuSteps extends ScenarioSteps {
 
     MenuOnDayPage menuOnDayPage;
-
-//    @Managed
-//    WebDriver webDriver;
 
     @Step
     public void openMenuOnDayPage() {
@@ -32,12 +25,6 @@ public class CreateMenuSteps extends ScenarioSteps {
     @Step
     public void clickUkrCuisine() {
         menuOnDayPage.clickUkrCuisine();
-    }
-
-    @Step
-    public void clickBack() {
-        menuOnDayPage.waitForBackBtn();
-        menuOnDayPage.clickBtnBack();
     }
 
     @Step
@@ -63,8 +50,8 @@ public class CreateMenuSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickSandwich() {
-        menuOnDayPage.clickSandwich();
+    public void clickMilk() {
+        menuOnDayPage.clickMilk();
     }
 
     @Step
@@ -73,27 +60,17 @@ public class CreateMenuSteps extends ScenarioSteps {
     }
 
     @Step
-    public void waitForBackButton() {
-        menuOnDayPage.waitForBackBtn();
+    public void checkDishOnBreakfast() {
+        assertTrue(menuOnDayPage.isMilkEnableOnBreakfastPanel());
     }
 
     @Step
-    public WebElementFacade getDivBreakfast() {
-       return menuOnDayPage.getDivBreakfast();
+    public WebElementFacade addMilk() {
+        return menuOnDayPage.getMilk();
     }
 
     @Step
-    public WebElementFacade getSandwich() {
-        return menuOnDayPage.getSandwich();
-    }
-
-    @Step
-    public void clickDiv() {
-        menuOnDayPage.clickDiv();
-    }
-
-    @Step
-    public void dragNDrop() {
-        menuOnDayPage.dragNDrop();
+    public void dragNDropDishForBreakfast(WebElementFacade dish) {
+        menuOnDayPage.dragNDropDishForBreakfast(dish);
     }
 }

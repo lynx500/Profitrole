@@ -8,7 +8,7 @@ import org.openqa.selenium.*;
 import org.yecht.Data;
 
 
-public class EndUserSteps extends ScenarioSteps {
+public class MainPageSteps extends ScenarioSteps {
 
     ProfitroleMainPage profitroleMainPage;
 

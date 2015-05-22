@@ -1,7 +1,6 @@
 package com.rhcloud.profiterole.features;
 
-import com.rhcloud.profiterole.steps.MainPageSteps;
-import com.rhcloud.profiterole.steps.LoginSteps;
+import com.rhcloud.profiterole.steps.RecipesSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
@@ -12,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityRunner.class)
-public class ProfitroleMainPageStory {
+public class RecipesStory {
 
     @Managed
     WebDriver webDriver;
@@ -21,15 +20,12 @@ public class ProfitroleMainPageStory {
     Pages pages;
 
     @Steps
-    MainPageSteps mainPageSteps;
-
-    @Steps
-    LoginSteps loginSteps;
+    RecipesSteps recipesSteps;
 
     @Test
-    public void clickLoginLink() {
-        mainPageSteps.openHomePage();
-        mainPageSteps.clickLoginLink();
-        loginSteps.checkHeadline("Вход");
+    public void shouldOpenJapaneseCuisine() {
+        recipesSteps.openRecipesPage();
+        recipesSteps.openJapaneseCuisine();
+        recipesSteps.checkCuisineHeadline("Японская кухня");
     }
 }

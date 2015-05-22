@@ -37,7 +37,7 @@ public class LoginStory {
     }
 
     @Test
-    public void shouldReturnMessageAfterEmptyInput() {
+    public void shouldReturnMessageIncorrectLoginAfterEmptyInput() {
         loginPageSteps.login("", "");
         loginPageSteps.checkMessageIncorrectLogin("Вы ввели неверный логин и/или пароль");
     }

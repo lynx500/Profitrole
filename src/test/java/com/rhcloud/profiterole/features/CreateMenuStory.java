@@ -4,21 +4,16 @@ import com.rhcloud.profiterole.steps.CreateMenuSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 @RunWith(SerenityRunner.class)
 public class CreateMenuStory {
 
-    @Managed
+    @Managed(uniqueSession = true)
     WebDriver webDriver;
 
     @ManagedPages
@@ -35,30 +30,16 @@ public class CreateMenuStory {
     }
 
     @Test
-    public void shouldOpenDesiredCuisine() {
-        createMenuSteps.openBreakfatsPage();
-        createMenuSteps.clickUkrCuisine();
-        createMenuSteps.checkRightHeadline("Украинская");
-    }
-
-    @Test
-    public void shouldReturnToTheRecipesTable() {
-        createMenuSteps.openUkrCuisine();
-        createMenuSteps.clickBack();
-        createMenuSteps.checkRightHeadline("Рецепты");
-    }
-
-    @Test
     public void shouldOpenWindowWithDesiredRecipe() {
         createMenuSteps.openUkrCuisine();
-        createMenuSteps.clickSandwich();
-        createMenuSteps.checkHeadlineInModalRecipeWindow("Бутерброд с колбасой");
+        createMenuSteps.clickMilk();
+        createMenuSteps.checkHeadlineInModalRecipeWindow("Молоко");
     }
 
     @Test
     public void addBreakfast() {
         createMenuSteps.openUkrCuisine();
-        createMenuSteps.dragNDrop();
-        createMenuSteps.clickDiv();
+        createMenuSteps.dragNDropDishForBreakfast(createMenuSteps.addMilk());
+        createMenuSteps.checkDishOnBreakfast();
     }
 }
