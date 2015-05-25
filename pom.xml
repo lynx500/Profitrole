@@ -61,8 +61,8 @@
           <includes>
             <include>**/*Story.java</include>
           </includes>
-          <forkCount>3</forkCount>
-          <reuseForks>true</reuseForks>
+          <!--<forkCount>3</forkCount>-->
+          <!--<reuseForks>true</reuseForks>-->
           <argLine>-Xmx512m</argLine>
           <systemPropertyVariables>
             <webdriver.driver>${webdriver.driver}</webdriver.driver>
