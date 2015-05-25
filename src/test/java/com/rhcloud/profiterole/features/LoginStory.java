@@ -1,6 +1,7 @@
 package com.rhcloud.profiterole.features;
 
 import com.rhcloud.profiterole.steps.LoginSteps;
+import com.rhcloud.profiterole.util.PropertyLoader;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
@@ -23,9 +24,11 @@ public class LoginStory {
     @Steps
     LoginSteps loginPageSteps;
 
+    PropertyLoader props = new PropertyLoader();
+
     @Test
-    public void shouldLoginToTheAccount() {
-        loginPageSteps.login("nikedrummer", "123456");
+    public void shouldLoginToTheAccount() throws Exception {
+        loginPageSteps.login(props.loadProperty("login"), props.loadProperty("password"));
         loginPageSteps.checkTextOnLogoutLink("Выход");
         loginPageSteps.checkTextOnProfileLink("Профиль");
     }

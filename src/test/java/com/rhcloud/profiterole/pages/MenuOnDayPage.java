@@ -3,6 +3,7 @@ package com.rhcloud.profiterole.pages;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -39,6 +40,7 @@ public class MenuOnDayPage extends PageObject {
     private WebElementFacade milkOnDivBreakfast;
 
     public boolean isMilkEnableOnBreakfastPanel() {
+        waitForRenderedElements(By.xpath("//*[@id='breakfast']/div[contains(.,'Молоко')]"));
         return milkOnDivBreakfast.isPresent();
     }
 

@@ -14,7 +14,7 @@ import org.openqa.selenium.WebDriver;
 @RunWith(SerenityRunner.class)
 public class ForgotPasswordStory {
 
-    @Managed(uniqueSession = true)
+    @Managed
     WebDriver webDriver;
 
     @ManagedPages
